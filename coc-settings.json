@@ -1,0 +1,40 @@
+{
+    "suggest.noselect": false,
+    "coc.preferences.extensionUpdateCheck": "never",
+    "languageserver": {
+        "golang":{
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+
+            "initializationOptions": {
+            "client": {"snippetSupport": false}, "completion": {"placeholder": false},
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "clang": {
+                    "extraArgs": [
+                        "-isystem/usr/local/include",
+                        "-isystem/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1",
+                        "-isystem/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include",
+                        "-isystem/Library/Developer/CommandLineTools/usr/include",
+                        "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
+                        "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+                    ],
+                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0"
+                }
+            }
+        }
+    }
+}
