@@ -37,6 +37,9 @@ hi LineNr ctermfg=245
 " 左右分屏竖线样式
 set fillchars+=vert:│
 hi VertSplit ctermfg=DarkGray ctermbg=Black
+"highlight String guifg=200 guibg=100
+hi String ctermfg=215 ctermbg=NONE
+highlight Comment ctermfg=Gray
 
 autocmd Filetype json let g:indentLine_setConceal = 0
 
@@ -307,6 +310,8 @@ let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
+"goDiagnosticWarning
+let g:go_highlight_diagnostic_warnings = 0
 
 
 " leaderf
