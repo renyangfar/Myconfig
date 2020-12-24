@@ -42,10 +42,10 @@ export GOPATH=~/go
 
 if [[ -d "/usr/local/opt/go/libexec" ]] ; then
         export GOROOT=/usr/local/opt/go/libexec
-elif [[ -d "/usr/lib/golang" ]] ; then
-	export GOROOT=/usr/lib/golang
-else
+elif [[ -d "/usr/local/apps/go" ]] ; then
 	export GOROOT=/usr/local/apps/go
+else
+	export GOROOT=/usr/lib/golang
 fi
 
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
