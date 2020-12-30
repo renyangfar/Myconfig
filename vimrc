@@ -97,7 +97,7 @@ map sv :vs<CR>
 map tt :terminal<CR>
 map <space>o :!echo "" > /tmp/.tmp<CR>
 map <silent> <leader>/ :Ag <c-r><c-w><CR>
-map <space>n :set number! number?<cr>
+map <space>n :set number! number?<cr>:IndentLinesDisable<cr>
 
 tnoremap jj <c-\><c-n>
 
