@@ -292,6 +292,7 @@ let g:airline_skip_empty_sections = 1
 
 
 " vim-go
+let g:go_fmt_autosave = 0
 "let g:go_fmt_experimental = 1
 "au Filetype go nmap <leader>d :GoDef<CR>
 "au Filetype go nmap <leader>g :GoDoc<CR>
