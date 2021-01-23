@@ -89,8 +89,8 @@ map sc :tabclose<CR>
 map <c-_> :e #<CR>
 map <c-h> :tabprevious<CR>
 map <c-l> :tabnext<CR>
-map = :bnext<CR>
-map - :bprevious<CR>
+map <expr> = tabpagenr("$")>1 ? ':tabnext<CR>':':bnext<CR>'
+map <expr> - tabpagenr("$")>1 ? ':tabprevious<CR>':':bprevious<CR>'
 map s1 :b1<CR>
 map sp :sp<CR>
 map sv :vs<CR>
