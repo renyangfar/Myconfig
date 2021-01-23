@@ -83,7 +83,7 @@ map <leader>o :vs $VIMRC<CR>
 map <space>w :w !sudo tee %<CR>
 map <space>i :r !figlet
 "map <backspace> :nohl<CR>
-map so :tabedit %<CR>
+map so :let current_line = line(".") <CR> :tabedit %<CR> :exe current_line <CR> zz
 map sc :tabclose<CR>
 " <c-_> --> <c-/>
 map <c-_> :e #<CR>
