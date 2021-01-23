@@ -19,6 +19,9 @@ set splitbelow
 set ignorecase
 set smartcase
 set encoding=utf-8
+
+
+
 " 搜索关键字样式
 hi Search term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
 
@@ -41,7 +44,6 @@ hi VertSplit ctermfg=DarkGray ctermbg=Black
 hi String ctermfg=215 ctermbg=NONE
 highlight Comment ctermfg=Gray
 
-autocmd Filetype json let g:indentLine_setConceal = 0
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -97,7 +99,9 @@ map sv :vs<CR>
 map tt :terminal<CR>
 map <space>o :!echo "" > /tmp/.tmp<CR>
 map <silent> <leader>/ :Ag <c-r><c-w><CR>
-map <space>n :set number! number?<cr>:IndentLinesDisable<cr>
+"map <space>n :set number! number?<cr>:IndentLinesDisable<cr>:GitGutterDisable<cr>:CocDisable<cr>
+map <space>n :set nonumber<cr>:IndentLinesDisable<cr>:GitGutterDisable<cr>:CocDisable<cr>
+map <space>N :set number<cr>:IndentLinesEnable<cr>:GitGutterEnable<cr>:CocEnable<cr>
 
 tnoremap jj <c-\><c-n>
 
@@ -227,6 +231,13 @@ nmap sh <Plug>(easymotion-jumptoanywhere)
 
 " vim-fugitive
 nmap gd :Gdiffsplit<cr>
+
+" gitgutter
+let g:gitgutter_enabled = 1
+
+" indentLine
+let g:indentLine_enabled=1
+autocmd Filetype json let g:indentLine_setConceal = 0
 
 " nerdtree config
 let g:NERDTreeWinSize=25
