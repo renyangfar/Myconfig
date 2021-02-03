@@ -102,6 +102,7 @@ map <silent> <leader>/ :Ag <c-r><c-w><CR>
 "map <space>n :set number! number?<cr>:IndentLinesDisable<cr>:GitGutterDisable<cr>:CocDisable<cr>
 map <space>n :set nonumber<cr>:IndentLinesDisable<cr>:GitGutterDisable<cr>:CocDisable<cr>
 map <space>N :set number<cr>:IndentLinesEnable<cr>:GitGutterEnable<cr>:CocEnable<cr>
+nnoremap * :keepjumps normal! mi*`i<CR>
 
 tnoremap jj <c-\><c-n>
 
