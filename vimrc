@@ -80,7 +80,7 @@ map <right> :vertical resize+5<CR>
 "au Filetype json map <leader>F :%! jq --indent 4 .<CR>
 map <leader>F :Autoformat<CR>
 map <leader>s :e ~/.config/nvim/init.vim<CR>
-map <leader>S :source $VIMRC<CR>
+map <leader>S :source $VIMRC<CR>:CocRestart<CR>:NERDTreeRefreshRoot<CR>
 map <leader>o :vs $VIMRC<CR>
 map <space>w :w !sudo tee %<CR>
 map <space>i :r !figlet
