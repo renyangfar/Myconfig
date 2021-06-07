@@ -275,6 +275,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 nmap gp :Files<cr>
 nmap gm :Maps<cr>
 nmap gc :Commands<cr>
+nmap <space><space> :Rg<cr>
 " Border color
 "let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo' } }
 " Border style (rounded / sharp / horizontal)
