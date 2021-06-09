@@ -147,6 +147,10 @@ endfunc
             "\   'cache_enabled': 1,
             "\ }
 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --colors "path:fg:green" --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, fzf#vim#with_preview({ 'options': '--color hl:220,hl+:200' }), 0)
+ 
 call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
