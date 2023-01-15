@@ -16,7 +16,7 @@ docker docker-compose
 source $ZSH/oh-my-zsh.sh
 
 export TERM="xterm-256color"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #if [[ `uname` == "Linux" ]] && [[ -z "$TMUX" ]] ; then
@@ -39,6 +39,11 @@ export VIMRC=~/projects/Myconfig/vimrc
 export GOPATH=~/go
 #export GO111MODULE=on
 #export GOPROXY=https://goproxy.cn
+#
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+#export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview"
+export RIPGREP_CONFIG_PATH='/root/.rg.conf'
+
 
 if [[ -d "/usr/local/opt/go/libexec" ]] ; then
         export GOROOT=/usr/local/opt/go/libexec

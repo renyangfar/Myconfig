@@ -1,4 +1,4 @@
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+"autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -68,7 +68,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>n <Plug>(coc-rename)
 
 " Remap for format selected region
-nmap <leader>f  <Plug>(coc-format)
+"nmap <leader>f  <Plug>(coc-format)
+nmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>f  <Plug>(coc-format-selected)
 vmap <leader>f  <Plug>(coc-format-selected)
 
@@ -130,7 +131,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-nmap <silent> <space><space> <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>e <Plug>(coc-diagnostic-next)
 nmap <silent> <space>d <Plug>(coc-definition)
 nmap <silent> <space>g <Plug>(coc-declaration)
 nmap <silent> <space>i <Plug>(coc-implementation)

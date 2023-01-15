@@ -106,5 +106,5 @@ curl -sL install-node.now.sh/lts | bash
 ### Coc.nvim
 * 增加拓展插件(nvim打开后执行)
 ```vim
-:CocInstall coc-python coc-json coc-html coc-list coc-tsserver coc-highlight coc-tsserver
+:CocInstall coc-python coc-json coc-html coc-list coc-tsserver
 ```

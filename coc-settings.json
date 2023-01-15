@@ -1,38 +1,53 @@
 {
     "suggest.noselect": false,
+    "suggest.enablePreview": true,
+    "list.maxPreviewHeight": 30,
+    "python.jediEnabled": true,
     "coc.preferences.extensionUpdateCheck": "never",
     "languageserver": {
-        "golang":{
+        "golang": {
             "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["go"]
+            "rootPatterns": [
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "filetypes": [
+                "go"
+            ]
         },
         "bash": {
             "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"],
-            "ignoredRootPaths": ["~"]
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": [
+                "~"
+            ]
         },
         "ccls": {
             "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-
+            "filetypes": [
+                "c",
+                "cpp",
+                "cuda",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls-root",
+                "compile_commands.json"
+            ],
             "initializationOptions": {
-            "client": {"snippetSupport": false}, "completion": {"placeholder": false},
                 "cache": {
-                    "directory": "/tmp/ccls"
+                    "directory": ".ccls-cache"
                 },
-                "clang": {
-                    "extraArgs": [
-                        "-isystem/usr/local/include",
-                        "-isystem/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1",
-                        "-isystem/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include",
-                        "-isystem/Library/Developer/CommandLineTools/usr/include",
-                        "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
-                        "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-                    ],
-                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0"
+                "client": {
+                    "snippetSupport": true
                 }
             }
         }

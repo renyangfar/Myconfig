@@ -1,15 +1,15 @@
-syntax on
+"syntax on
 set hlsearch
 exec "nohlsearch"
 set incsearch
 set backspace=2
-set clipboard=unnamed
+"set clipboard=unnamed
+"set clipboard+=unnamedplus
 set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set wildmode=longest,list
-set clipboard+=unnamedplus
 set nrformats+=alpha
 set completeopt=longest,menuone
 set cursorline
@@ -20,14 +20,25 @@ set ignorecase
 set smartcase
 set encoding=utf-8
 
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
 
+
+
+:filetype on
+
+autocmd BufRead,BufNewFile *.sh setlocal foldmethod=expr
+set foldexpr=getline(v:lnum)[0]=~'[^#]'
+hi Folded ctermbg=NONE
+set fillchars=fold:\ 
 
 " 搜索关键字样式
 hi Search term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
 
 " 游标所在行样式
 "hi CursorLine term=bold cterm=bold guibg=Grey40
-hi CursorLine ctermfg=NONE ctermbg=238 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=242 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 "autocmd InsertEnter,InsertLeave * set cul!
 hi Pmenu ctermbg=237 ctermfg=white cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 hi PmenuSel ctermbg=242 ctermfg=white
@@ -65,7 +76,7 @@ cnoremap <C-l> <Right>
 
 inoremap <C-n> <C-x><C-o>
 inoremap <C-@> <C-n>
-vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>N
 vnoremap p "_dP
 
 map s <nop>
@@ -80,8 +91,11 @@ map <right> :vertical resize+5<CR>
 "au Filetype json map <leader>F :%! jq --indent 4 .<CR>
 map <leader>F :Autoformat<CR>
 map <leader>s :e ~/.config/nvim/init.vim<CR>
-map <leader>S :source $VIMRC<CR>:CocRestart<CR>:NERDTreeRefreshRoot<CR>
+map <leader>S :e<CR>:source $VIMRC<CR>:CocRestart<CR>:NERDTreeRefreshRoot<CR>
 map <leader>o :vs $VIMRC<CR>
+map <leader>- :sp<CR>
+map <leader>= :vs<CR>
+map <leader>c :%bd\|e#<CR>
 map <space>w :w !sudo tee %<CR>
 map <space>i :r !figlet
 "map <backspace> :nohl<CR>
@@ -133,30 +147,19 @@ func! CompileRunGcc()
     endif
 endfunc
 
-
-"let g:clipboard = {
-            "\   'name': 'xclip-xfce4-clipman',
-            "\   'copy': {
-            "\      '+': 'xclip -selection clipboard',
-            "\      '*': 'xclip -selection clipboard',
-            "\    },
-            "\   'paste': {
-            "\      '+': 'xclip -selection clipboard -o',
-            "\      '*': 'xclip -selection clipboard -o',
-            "\   },
-            "\   'cache_enabled': 1,
-            "\ }
-
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --colors "path:fg:green" --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, fzf#vim#with_preview({ 'options': '--color hl:220,hl+:200' }), 0)
- 
+  \   'rg --column --line-number --no-heading --no-ignore-global --color=always -g "!vendor/**" --colors "path:fg:green" --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, fzf#vim#with_preview({ 'options': '--color hl:220,hl+:220 --delimiter : --nth 4..' }), <bang>0)
+
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0ng/vim-hybrid'
-Plug 'tmhedberg/simpylfold'
+"Plug 'tmhedberg/simpylfold'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
@@ -188,10 +191,17 @@ Plug 'ianva/vim-youdao-translater'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
+"Plug 'andymass/vim-matchup' " 有bug,多行末尾插入,有问题
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'godlygeek/tabular'
+Plug 'ojroques/vim-oscyank'
+"Plug 'plasticboy/vim-markdown'
+
 "Plug 'tmux-plugins/vim-tmux-focus-events'
 "Plug 'roxma/vim-tmux-clipboard'
 call plug#end()
+
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
 
 
 " delimitmate
@@ -206,8 +216,8 @@ let g:UltiSnipsEditSplit="vertical"
 " snippets plug config
 
 " fold config
-set foldmethod=indent
-set foldlevel=99
+"set foldmethod=indent
+"set foldlevel=99
 
 
 " tagbar config
@@ -276,7 +286,7 @@ map <leader>b :CtrlPBuffer<CR>
 " fzf.vim
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 "nmap gb :Buffers<cr>
-nmap gp :Files<cr>
+nmap gh :Files<cr>
 nmap gm :Maps<cr>
 nmap gc :Commands<cr>
 nmap <space><space> :Rg<cr>
@@ -335,8 +345,8 @@ let g:go_highlight_diagnostic_warnings = 0
 " leaderf
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = 'gh'
-let g:Lf_ShortcutB = 'gb'
+"let g:Lf_ShortcutF = 'gh'
+"let g:Lf_ShortcutB = 'gb'
 "let g:Lf_CommandMap = {
 "\   '<C-k>': ['<C-p>'],
 "\   '<C-j>': ['<C-n>'],
@@ -347,6 +357,7 @@ let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 
 " vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_disable_when_zoomed = 1
 
 nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
@@ -363,11 +374,14 @@ let g:ale_linters = {
 
 
 " youdao
-vnoremap <silent> yd :<C-u>Ydv<CR>
-nnoremap <silent> yd :<C-u>Ydc<CR>
-noremap <leader>yd :<C-u>Yde<CR>
+"vnoremap <silent> yd :<C-u>Ydv<CR>
+"nnoremap <silent> yd :<C-u>Ydc<CR>
+"noremap <leader>yd :<C-u>Yde<CR>
 
 " rainbow
 let g:rainbow_active = 1
+
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_hi_surround_always = 1
 
 
