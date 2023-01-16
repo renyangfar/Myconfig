@@ -47,8 +47,7 @@ pip3 install supervisor pynvim jedi rope
 4、神器安装
 * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 ```shell
-chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
 ```
 * [tmux](https://github.com/tmux/tmux)
 ```shell
