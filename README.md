@@ -52,7 +52,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 * [tmux](https://github.com/tmux/tmux)
 ```shell
 cd /usr/local/apps
-wget https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz
+wget https://github.com/tmux/tmux/releases/download/3.3/tmux-3.3.tar.gz
 tar -xvzf tmux-3.0a.tar.gz
 cd tmux-3.0a/
 ./configure && make
