@@ -44,7 +44,7 @@ ShellCheck
 ```shell
 pip3 install supervisor pynvim jedi rope
 ```
-4、神器安装
+4、工具安装配置
 * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
@@ -88,6 +88,12 @@ git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
 ```
 sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
 sudo yum install ripgrep
+```
+
+* [git](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE)
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
 
 ### 配置
