@@ -71,7 +71,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ```
 * [yarn](https://classic.yarnpkg.com/en/docs/install#mac-stable)
 ```shell
-curl -o- -L https://yarnpkg.com/install.sh | bash
+npm install --global yarn
 ```
 
 * [bash language server](https://github.com/bash-lsp/bash-language-server)
