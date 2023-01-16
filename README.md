@@ -61,7 +61,7 @@ sudo make install
 * [neovim](https://github.com/neovim/neovim/releases/tag/v0.4.3)
 ```shell
 cd /usr/local/apps
-wget https://github.com/neovim/neovim/releases/download/v0.4.3/nvim-linux64.tar.gz
+wget https://github.com/antoineco/neovim-neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
 tar -xvzf nvim-linux64.tar.gz
 ln -s /usr/local/apps/nvim-linux64/bin/nvim /usr/local/bin/vim
 ```
