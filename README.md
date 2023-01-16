@@ -79,6 +79,11 @@ npm install --global yarn
 npm i -g bash-language-server
 ```
 
+* [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+```
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
+```
+
 ### 配置
 当前项目下执行
 ```shell
