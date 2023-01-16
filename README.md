@@ -84,6 +84,12 @@ npm i -g bash-language-server
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
 ```
 
+* [rg](https://github.com/BurntSushi/ripgrep#installation)
+```
+sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
+sudo yum install ripgrep
+```
+
 ### 配置
 当前项目下执行
 ```shell
