@@ -96,10 +96,10 @@ source ~/.zshrc
 ```shell
 setproxy  # 需提前配置代理服务器
 ```
-2、安装插件管理器vim-plug
+2、安装插件管理器[vim-plug](https://github.com/junegunn/vim-plug)
 ```shell
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 3、coc.nvim依赖安装
 ```
@@ -110,5 +110,5 @@ curl -sL install-node.now.sh/lts | bash
 ### Coc.nvim
 * 增加拓展插件(nvim打开后执行)
 ```vim
-:CocInstall coc-python coc-json coc-html coc-list coc-tsserver
+:CocInstall coc-python coc-json coc-html coc-lists coc-tsserver
 ```
