@@ -129,3 +129,6 @@ curl -sL install-node.now.sh/lts | bash
 ```vim
 :CocInstall coc-python coc-json coc-html coc-lists coc-tsserver
 ```
+
+### 温馨提醒
+如遇到问题，大概率是各组件或者插件版本不兼容，可尝试升级或降配版本。
