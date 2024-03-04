@@ -125,9 +125,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 3、coc.nvim依赖安装
 ```
-curl -sL install-node.now.sh/lts | bash
+curl -sL install-node.vercel.app/lts | bash
 ```
-4、nvim命令打开后执行`:PlugInstall`
+4、nvim命令打开后执行`:PlugInstall`和`:GoInstallBinaries`
 
 ### Coc.nvim
 * 增加拓展插件(nvim打开后执行)
