@@ -68,6 +68,11 @@ ln -s /usr/local/apps/nvim-linux64/bin/nvim /usr/local/bin/vim
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
 ```shell
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+Add the plugin to the list of plugins for Oh My Zsh to load (inside ~/.zshrc):
+plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+)
 ```
 * [yarn](https://classic.yarnpkg.com/en/docs/install#mac-stable)
 ```shell
