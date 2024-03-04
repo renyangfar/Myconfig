@@ -149,7 +149,7 @@ endfunc
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --no-ignore-global --color=always -g "!vendor/**" --colors "path:fg:green" --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, fzf#vim#with_preview({ 'options': '--color hl:220,hl+:220 --delimiter : --nth 4..' }), <bang>0)
+  \   'rg --column --line-number --no-heading --no-ignore-global --color=always -g "!vendor/**" -g "!protocol/**" --colors "path:fg:green" --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, fzf#vim#with_preview({ 'options': '--color hl:220,hl+:220 --delimiter : --nth 4..' }), <bang>0)
 
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
@@ -172,18 +172,20 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-repeat'
 Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 "Plug 'raimondi/delimitmate'
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'flazz/vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
@@ -201,6 +203,7 @@ Plug 'ojroques/vim-oscyank'
 "Plug 'roxma/vim-tmux-clipboard'
 call plug#end()
 
+let g:oscyank_term = 'default'
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
 
 
@@ -312,7 +315,8 @@ let g:go_fmt_autosave = 0
 "let g:go_fmt_experimental = 1
 "au Filetype go nmap <leader>d :GoDef<CR>
 "au Filetype go nmap <leader>g :GoDoc<CR>
-au Filetype go nmap <leader>i :GoImports<CR>
+"au Filetype go nmap <leader>i :GoImports<CR>
+au Filetype go nmap <leader>i :GoImplements<CR>
 "au Filetype go nmap <leader>I :GoImport <C-r><C-w><CR>
 "au Filetype go nmap <leader>n :GoRename<CR>
 "au Filetype go nmap <leader>T :GoTest<CR>
