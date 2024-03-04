@@ -182,10 +182,11 @@ Plug 'tpope/vim-fugitive'
 "Plug 'raimondi/delimitmate'
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
+"Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.82'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+"Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'flazz/vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
